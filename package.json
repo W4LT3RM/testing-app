@@ -1,0 +1,10 @@
+{
+  "name": "qiming-academy-landing-page",
+  "version": "1.0.0",
+  "private": true,
+  "description": "启明学院现代化教育机构官网封面",
+  "scripts": {
+    "dev": "node server.js",
+    "start": "node server.js"
+  }
+}
