@@ -17,3 +17,29 @@ npm start
 ```bash
 PORT=3000 npm start
 ```
+
+## 发布到 GitHub Pages
+
+本项目已经包含自动发布工作流 `.github/workflows/deploy-pages.yml`。第一次发布时：
+
+1. 在 GitHub 创建一个空仓库，不要额外勾选 README、`.gitignore` 或 License。
+2. 在本地项目目录连接并推送仓库（把地址替换为你自己的仓库地址）：
+
+   ```bash
+   git remote add origin https://github.com/你的用户名/你的仓库名.git
+   git branch -M main
+   git push -u origin main
+   ```
+
+3. 打开 GitHub 仓库的 **Settings → Pages**。
+4. 在 **Build and deployment → Source** 中选择 **GitHub Actions**。
+5. 打开仓库的 **Actions** 页面，等待 `Deploy static site to GitHub Pages` 显示绿色对勾。
+6. 回到 **Settings → Pages**，打开 GitHub 显示的网站地址。项目仓库通常对应：
+
+   ```text
+   https://你的用户名.github.io/你的仓库名/
+   ```
+
+之后每次向 `main` 或 `master` 分支推送代码，网站都会自动重新发布。也可以在 **Actions → Deploy static site to GitHub Pages → Run workflow** 中手动发布。
+
+> `localhost:4173` 仅用于你自己的电脑或开发容器。它不是公开网址；在 GitHub 上查看网站需要先完成以上 Pages 发布步骤。
