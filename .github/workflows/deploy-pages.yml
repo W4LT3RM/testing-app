@@ -25,10 +25,12 @@ jobs:
         uses: actions/checkout@v4
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
+        with:
+          enablement: true
       - name: Prepare static website
         run: |
           mkdir dist
-          cp index.html styles.css script.js .nojekyll dist/
+          cp index.html styles.css script.js portal.html portal.css portal.js .nojekyll dist/
       - name: Upload website
         uses: actions/upload-pages-artifact@v3
         with:

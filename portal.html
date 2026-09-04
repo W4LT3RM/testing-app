@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="启明学院教学工作台——预约、课表、进度、教材与复习的一体化教学流程。" />
+    <title>教学工作台｜启明学院</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Noto+Serif+SC:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="portal.css" />
+  </head>
+  <body>
+    <aside class="sidebar" aria-label="教学工作台导航">
+      <a class="brand" href="index.html"><span class="brand-mark">启</span><span><strong>启明学院</strong><small>教学工作台</small></span></a>
+      <nav id="portal-nav">
+        <button class="active" data-view="overview"><span>⌂</span>工作概览</button>
+        <button data-view="booking"><span>＋</span>预约上课</button>
+        <button data-view="schedule"><span>▦</span>我的课表</button>
+        <button data-view="progress"><span>◴</span>课程进度</button>
+        <button data-view="materials"><span>▤</span>教材资源库</button>
+        <button data-view="review"><span>✓</span>课后复习</button>
+      </nav>
+      <div class="sidebar-help"><span>?</span><div><strong>需要帮助？</strong><small>查看使用指南</small></div></div>
+      <a class="back-link" href="index.html">← 返回学院首页</a>
+    </aside>
+
+    <main class="workspace">
+      <header class="topbar">
+        <button class="mobile-menu" aria-label="打开导航">☰</button>
+        <div><p id="today-label"></p><h1 id="page-title">早上好，林老师</h1></div>
+        <div class="top-actions">
+          <button class="icon-button" aria-label="通知">♢<i>3</i></button>
+          <label class="role-switch"><span>当前身份</span><select id="role-select"><option value="teacher">授课教师</option><option value="headteacher">班主任</option></select></label>
+          <button class="profile"><span>林</span><strong>林沐老师</strong><i>⌄</i></button>
+        </div>
+      </header>
+
+      <div class="content">
+        <section class="view active" id="overview-view">
+          <div class="welcome-card">
+            <div><p class="overline">今日教学提醒</p><h2>每一节好课，都始于从容的准备。</h2><p>您今天有 3 节课程，第一节将在 45 分钟后开始。</p></div>
+            <button class="solid-button" data-open-booking>预约新课程 <span>＋</span></button>
+            <div class="welcome-orbit"></div>
+          </div>
+          <div class="metric-grid">
+            <article><div class="metric-icon orange">▦</div><div><span>今日课程</span><strong>3 <small>节</small></strong></div><em>下一节 09:30</em></article>
+            <article><div class="metric-icon green">◴</div><div><span>本周教学</span><strong>12 <small>课时</small></strong></div><em>完成 75%</em></article>
+            <article><div class="metric-icon blue">✓</div><div><span>待批复习</span><strong id="pending-count">8 <small>份</small></strong></div><em>2 份即将超时</em></article>
+            <article><div class="metric-icon gold">☆</div><div><span>班级达成率</span><strong>86<small>%</small></strong></div><em class="up">↑ 4.2%</em></article>
+          </div>
+          <div class="dashboard-grid">
+            <section class="panel today-panel">
+              <div class="panel-heading"><div><p class="overline">TODAY</p><h2>今日课程</h2></div><button data-view-link="schedule">查看完整课表 →</button></div>
+              <div class="timeline">
+                <article class="current"><time>09:30<small>10:15</small></time><i></i><div><span class="tag">进行准备</span><h3>七年级 A 班 · 数学思维</h3><p>第三单元：平面几何初步 · 教室 3A</p></div><button class="text-button">进入课堂</button></article>
+                <article><time>11:00<small>11:45</small></time><i></i><div><h3>七年级 B 班 · 数学思维</h3><p>第三单元：平面几何初步 · 教室 2C</p></div><button class="round-button" aria-label="课程详情">→</button></article>
+                <article><time>14:30<small>15:15</small></time><i></i><div><h3>数学竞赛小组 · 专题课</h3><p>组合计数专题 · 创新实验室</p></div><button class="round-button" aria-label="课程详情">→</button></article>
+              </div>
+            </section>
+            <aside class="panel progress-mini">
+              <div class="panel-heading"><div><p class="overline">PROGRESS</p><h2>课程进度</h2></div><button data-view-link="progress">全部 →</button></div>
+              <div class="ring-wrap"><div class="progress-ring" style="--progress: 68"><strong>68%</strong><span>学期总进度</span></div></div>
+              <div class="progress-row"><div><strong>数学思维 · A 班</strong><span>18 / 24 课时</span></div><progress max="24" value="18"></progress></div>
+              <div class="progress-row"><div><strong>数学思维 · B 班</strong><span>16 / 24 课时</span></div><progress max="24" value="16"></progress></div>
+            </aside>
+          </div>
+          <div class="dashboard-grid lower">
+            <section class="panel quick-panel"><div class="panel-heading"><div><p class="overline">QUICK ACCESS</p><h2>快捷入口</h2></div></div><div class="quick-grid"><button data-view-link="booking"><span>＋</span><strong>预约课程</strong><small>安排新课时</small></button><button data-view-link="materials"><span>▤</span><strong>上传教材</strong><small>共享教学资源</small></button><button data-view-link="review"><span>✓</span><strong>布置复习</strong><small>创建课后任务</small></button></div></section>
+            <section class="panel notice-panel"><div class="panel-heading"><div><p class="overline">NOTICE</p><h2>教学通知</h2></div></div><ul><li><span>教务</span><div><strong>期中教学研讨会</strong><small>本周五 16:00 · 知行报告厅</small></div></li><li><span>系统</span><div><strong>教材库新增 12 份资源</strong><small>来自数学教研组 · 2 小时前</small></div></li></ul></section>
+          </div>
+        </section>
+
+        <section class="view" id="booking-view">
+          <div class="section-intro"><div><p class="overline">LESSON BOOKING</p><h2>预约上课</h2><p>选择班级、课程和可用时段，快速完成教学安排。</p></div><button class="solid-button" data-open-booking>创建预约 <span>＋</span></button></div>
+          <div class="booking-layout"><section class="panel"><h3>本周可用时段</h3><div class="date-strip" id="date-strip"></div><div class="slot-grid" id="slot-grid"></div></section><aside class="panel booking-list"><h3>我的预约</h3><div id="booking-items"></div></aside></div>
+        </section>
+
+        <section class="view" id="schedule-view">
+          <div class="section-intro"><div><p class="overline">WEEKLY SCHEDULE</p><h2>我的课表</h2><p>集中查看本周课程与教室安排。</p></div><div class="week-control"><button id="prev-week">←</button><strong id="week-label"></strong><button id="next-week">→</button></div></div>
+          <section class="panel schedule-wrap"><div class="schedule-grid" id="schedule-grid"></div></section>
+        </section>
+
+        <section class="view" id="progress-view">
+          <div class="section-intro"><div><p class="overline">COURSE PROGRESS</p><h2>课程进度追踪</h2><p>掌握各班授课节奏、目标达成与风险提醒。</p></div><select class="filter-select"><option>2026 秋季学期</option></select></div>
+          <div class="course-cards" id="course-cards"></div>
+        </section>
+
+        <section class="view" id="materials-view">
+          <div class="section-intro"><div><p class="overline">RESOURCE LIBRARY</p><h2>教材资源库</h2><p>按学科与类型检索、收藏和共享教学资源。</p></div><button class="solid-button" id="upload-button">上传资源 <span>↑</span></button></div>
+          <section class="panel library"><div class="library-tools"><label class="search-box">⌕<input id="material-search" placeholder="搜索教材、课件或关键词" /></label><div class="filter-pills" id="material-filters"><button class="active" data-filter="全部">全部</button><button data-filter="课件">课件</button><button data-filter="教案">教案</button><button data-filter="练习">练习</button></div></div><div class="material-grid" id="material-grid"></div></section>
+        </section>
+
+        <section class="view" id="review-view">
+          <div class="section-intro"><div><p class="overline">AFTER CLASS</p><h2>课后复习</h2><p>从布置、提交到反馈，形成完整的学习闭环。</p></div><button class="solid-button" id="create-review">布置新任务 <span>＋</span></button></div>
+          <div class="review-summary"><article><span>待提交</span><strong>12</strong></article><article><span>待批阅</span><strong id="review-pending">8</strong></article><article><span>已完成</span><strong id="review-done">36</strong></article></div>
+          <section class="panel"><div class="panel-heading"><div><h2>复习任务</h2></div><div class="filter-pills"><button class="active">进行中</button><button>已结束</button></div></div><div class="task-list" id="task-list"></div></section>
+        </section>
+      </div>
+    </main>
+
+    <dialog id="booking-dialog">
+      <form method="dialog" id="booking-form">
+        <div class="dialog-heading"><div><p class="overline">NEW BOOKING</p><h2>创建课程预约</h2></div><button value="cancel" aria-label="关闭">×</button></div>
+        <label>班级<select name="className" required><option value="">请选择班级</option><option>七年级 A 班</option><option>七年级 B 班</option><option>数学竞赛小组</option></select></label>
+        <label>课程<select name="course" required><option>数学思维</option><option>专题研习</option><option>阶段复习</option></select></label>
+        <div class="form-row"><label>日期<input type="date" name="date" required /></label><label>开始时间<input type="time" name="time" value="09:30" required /></label></div>
+        <label>教室<select name="room"><option>教室 3A</option><option>教室 2C</option><option>创新实验室</option><option>线上课堂</option></select></label>
+        <label>本节教学目标<textarea name="goal" rows="3" placeholder="简要描述本节课的目标"></textarea></label>
+        <div class="dialog-actions"><button value="cancel" class="ghost-button">取消</button><button value="default" class="solid-button" id="confirm-booking">确认预约</button></div>
+      </form>
+    </dialog>
+    <div class="toast" id="toast" role="status"></div>
+    <script src="portal.js"></script>
+  </body>
+</html>
